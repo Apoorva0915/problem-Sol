@@ -70,6 +70,41 @@ struct Node *addPolynomial(struct Node *s1, struct Node *s2)
     }
     return s3;
 }
+struct Node *subPolynomial(struct Node *s1, struct Node *s2)
+{
+    struct Node *s3 = NULL;
+    while (s1 != NULL && s2 != NULL)
+    {
+        if (s1->pow == s2->pow)
+        {
+            addLast(&s3, s1->coe - s2->coe, s1->pow);
+            s1 = s1->next;
+            s2 = s2->next;
+        }
+        else if (s1->pow > s2->pow)
+        {
+            addLast(&s3, s1->coe, s1->pow);
+            s1 = s1->next;
+        }
+        else
+        {
+            addLast(&s3, s2->coe, s2->pow);
+            s2 = s2->next;
+        }
+    }
+
+    while (s1 != NULL)
+    {
+        addLast(&s3, s1->coe, s1->pow);
+        s1 = s1->next;
+    }
+    while (s2 != NULL)
+    {
+        addLast(&s3, s2->coe, s2->pow);
+        s2 = s2->next;
+    }
+    return s3;
+}
 
 void show(struct Node *temp)
 {
@@ -117,10 +152,15 @@ int main()
 
     struct Node *poly3 = NULL;
     poly3 = addPolynomial(poly1, poly2);
+    struct Node *poly4 = NULL;
+    poly4 = subPolynomial(poly1, poly2);
 
     show(poly1);
     printf("\n");
     show(poly2);
     printf("\nPolynomial Addition\n");
     show(poly3);
+    printf("\nPolynomial Subtraction\n");
+    show(poly4);
+    
 }
