@@ -88,7 +88,7 @@ struct Node *subPolynomial(struct Node *s1, struct Node *s2)
         }
         else
         {
-            addLast(&s3, s2->coe, s2->pow);
+            addLast(&s3, -s2->coe, s2->pow);
             s2 = s2->next;
         }
     }
