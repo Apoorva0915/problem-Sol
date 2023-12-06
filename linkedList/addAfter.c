@@ -35,7 +35,7 @@ void addAfter(struct Node **s,int sinfo,int value)
     {
         if(temp->info == sinfo)
         {
-            break;
+            break; 
         }
         temp =temp->next;
     }

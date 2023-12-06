@@ -15,52 +15,60 @@ void show(struct Node *temp)
     }
 }
 
-void delInfo(struct Node **s,int info){
-    struct Node *temp; 
-    if(*s==NULL){
+void delInfo(struct Node **s, int info)
+{
+    struct Node *temp;
+    if (*s == NULL)
+    {
         printf("Empty List\n");
         return;
     }
-    if((*s)->info==info){
-        temp=*s;
-        *s=(*s)->next;
+
+    if ((*s)->info == info)
+    {
+        temp = *s;
+        *s = (*s)->next;
         free(temp);
         printf("\nNode Deleted\n");
     }
-    
 
-    struct Node *prev,*curr;
-    prev=*s;
-    curr=(*s)->next;
+    struct Node *prev, *curr;
+    prev = *s;
+    curr = (*s)->next;
 
-    while(curr->next != NULL){
-     if(curr->info==info){
-        break;
-     }
+    while (curr->next != NULL)
+    {
+        if (curr->info == info)
+        {
+            break;
+        }
         curr = curr->next;
         prev = prev->next;
     }
-    
-    if(curr==NULL){
-        printf("%d info not found\n",info);
+
+    if (curr == NULL)
+    {
+        printf("%d info not found\n", info);
     }
-    else{
-        prev->next=curr->next;
+    else
+    {
+        prev->next = curr->next;
         free(curr);
         printf("\nNode deleted\n");
     }
-
 }
 
-int takeinput(){
+int takeinput()
+{
     int value;
     printf("Enter any value");
-    scanf("%d",&value);
+    scanf("%d", &value);
     return value;
 }
 
-int main(){
-struct Node *start = NULL;
+int main()
+{
+    struct Node *start = NULL;
 
     struct Node b;
     struct Node c;
@@ -79,10 +87,10 @@ struct Node *start = NULL;
     d.next = &e;
     e.next = &f;
     f.next = NULL;
-    
+
     show(start);
 
-    delInfo(&start,200);
+    delInfo(&start, 200);
 
     show(start);
     return 0;
