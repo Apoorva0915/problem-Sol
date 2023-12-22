@@ -18,7 +18,7 @@ void reset()
 
 int IsEmpty()
 {
-    return queue.front > queue.rear;
+    return queue.front > queue.rear ;
 }
 
 int isFull()
@@ -179,7 +179,6 @@ int main()
 //     else
 //     {
 //         if (front == - 1)
-        
 //         front = 0;
 //         printf("Enter element which is to be inserted ");
 //         scanf("%d", &element);

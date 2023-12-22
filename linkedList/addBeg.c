@@ -25,7 +25,6 @@ void addBeg(struct Node **s, int value)
         newNode->next = *s;
 
     *s = newNode;
-
     printf("Node is added\n");
 }
 
