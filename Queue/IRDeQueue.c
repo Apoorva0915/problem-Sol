@@ -22,7 +22,7 @@ void reset()
     front = rear = -1;
 }
 
-void enqueue()
+void enqueue(int n)
 {
 
     if (isFull())
@@ -34,9 +34,9 @@ void enqueue()
         if (front == -1)
             front = 0;
 
-        int n;
-        printf("enter any no.");
-        scanf("%d", &n);
+        // int n;
+        // printf("enter any no.");
+        // scanf("%d", &n);
         rear += 1;
         queue[rear] = n;
         printf("Number Inserted\n");
@@ -73,7 +73,7 @@ void dequeue()
         printf("choose from the given choice\n");
         return;
     }
-    printf("%d is deleted", item);
+    printf("%d is deleted \n", item);
 }
 
 void show()
@@ -93,32 +93,40 @@ int main()
 {
 
     reset();
-    int choice;
+    // int choice;
 
-    while (1)
+    // while (1)
+    // {
+    //     printf("\nIR DeQUEUE USING ARRAY IMPLEMENTATION\n\n");
+    //     printf("\n1.ENQUEUE");
+    //     printf("\n2.DEQUEUE");
+    //     printf("\n3.SHOW");
+    //     printf("\n");
+    //     printf("\nEnter your choice : ");
+    //     scanf("%d", &choice);
+    //     switch (choice)
+    //     {
+    //     case 1:
+    //         enqueue();
+    //         break;
+    //     case 2:
+    //         dequeue();
+    //         break;
+    //     case 3:
+    //         show();
+    //         break;
+
+    //     default:
+    //         printf("\nInvalid Choice\n");
+    //     }
+    // }
+     for (int i = 1; i<=5; i++)
     {
-        printf("\nIR DeQUEUE USING ARRAY IMPLEMENTATION\n\n");
-        printf("\n1.ENQUEUE");
-        printf("\n2.DEQUEUE");
-        printf("\n3.SHOW");
-        printf("\n");
-        printf("\nEnter your choice : ");
-        scanf("%d", &choice);
-        switch (choice)
-        {
-        case 1:
-            enqueue();
-            break;
-        case 2:
-            dequeue();
-            break;
-        case 3:
-            show();
-            break;
-
-        default:
-            printf("\nInvalid Choice\n");
-        }
+       enqueue(i*10);
     }
+    show();
+    printf("\n");
+    dequeue();
+    show();
     return 0;
 }
